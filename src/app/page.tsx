@@ -3,18 +3,24 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const AboutSection = dynamic(() => import('./display/About'));
-const ProjectSection = dynamic(() => import('./display/Project'));
+const ProfileSection = dynamic(() => import('./display/Profile'));
+const SkillSection = dynamic(() => import('./display/Skill'));
+const LastMatchSection = dynamic(() => import('./display/LastMatch'));
 const ContactSection = dynamic(() => import('./display/Contact'));
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<'about' | 'project' | 'contact'>('about');
+  const [activeSection, setActiveSection] = useState<'about' | 'project' | 'skill' | 'lastmatch' | 'contact'>('about');
 
   const renderSection = () => {
     switch (activeSection) {
       case 'about':
         return <AboutSection />;
       case 'project':
-        return <ProjectSection />;
+        return <ProfileSection />;
+      case 'skill':
+        return <SkillSection />;
+      case 'lastmatch':
+        return <LastMatchSection />;
       case 'contact':
         return <ContactSection />;
       default:
@@ -44,7 +50,23 @@ export default function Home() {
               onClick={() => setActiveSection('project')}
               className="px-10 py-5 w-full h-auto hover:bg-yellow-400 transition duration-300"
             >
-              Projects
+              Profile
+            </button>
+          </li>
+          <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'skill' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
+            <button
+              onClick={() => setActiveSection('skill')}
+              className="px-10 py-5 w-full h-auto hover:bg-yellow-400 transition duration-300"
+            >
+              Skill
+            </button>
+          </li>
+          <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'lastmatch' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
+            <button
+              onClick={() => setActiveSection('lastmatch')}
+              className="px-10 py-5 w-full h-auto hover:bg-yellow-400 transition duration-300"
+            >
+              Last Match
             </button>
           </li>
           <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'contact' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
@@ -58,7 +80,7 @@ export default function Home() {
         </ul>
       </nav>
 
-      <div className="section h-screen w-full flex items-center justify-center bg-gradient-to-b from-black/90 to-black/50 text-white">
+      <div className="section h-screen w-full flex bg-gradient-to-b from-black/90 to-black/50 text-white">
         {renderSection()}
       </div>
     </main>
