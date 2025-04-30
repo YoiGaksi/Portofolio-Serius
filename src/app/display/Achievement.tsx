@@ -1,5 +1,5 @@
 "use client";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 const LastMatchSection = () => {
   const [fullscreenImg, setFullscreenImg] = useState<string | null>(null);
@@ -21,7 +21,7 @@ const LastMatchSection = () => {
 
     const matches: Match[] = [
       {title: "DiCoding - Beginner Javascript", deskripsi: "Didapatkan pada tanggal 20 April 2025", img: "/docachievement/dicodingsertifikat.png", alasan: "alasan" },
-      {title: "BNSP (Coming Soon)", deskripsi: "didapatkan pada ", img: "/docachievement/match1.png", alasan: "Coming Soon" },
+      {title: "BNSP (Coming Soon)", deskripsi: "didapatkan pada ", img: "/docachievement/coming-soon.png", alasan: "Coming Soon" },
     ];
 
 
@@ -30,7 +30,7 @@ const LastMatchSection = () => {
       <h1 className="text-4xl tracking-widest mb-8">ACHIEVEMENT</h1>
 
       <div className="flex flex-col gap-6 w-full" data-aos="fade-left" data-aos-duration="1000">
-        {matches.map((match, i) => (
+        {matches.map((match) => (
           <div
             key={match.title}
             className="flex flex-wrap w-full bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"

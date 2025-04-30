@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-const AOS = require("aos");
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 interface Skill {

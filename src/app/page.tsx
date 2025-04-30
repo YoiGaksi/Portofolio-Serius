@@ -3,6 +3,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import AOS from 'aos';
 
 const AboutSection = dynamic(() => import('./display/About'));
 const ProfileSection = dynamic(() => import('./display/Profile'));
@@ -13,7 +14,6 @@ const ContactSection = dynamic(() => import('./display/Contact'));
 
 export default function Home() {
   useEffect(() => {
-    const AOS = require('aos');
     AOS.init({
       duration: 1000,
       once: true,

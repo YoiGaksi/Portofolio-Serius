@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 const ProjectSection = () => {
   // Umur Dan Tanngal Lahir Di bawah ini
   const birthDate = new Date("2006-11-26");
@@ -13,7 +11,7 @@ const ProjectSection = () => {
       today.getDate() < birthDate.getDate())
       ? 1
       : 0); // Menghitung umur berdasarkan tanggal lahir
-  const experience = today.getFullYear() - 2024; // Menghitung pengalaman kerja dari tahun 2023
+
 
   return (
     <div className="flex p-4 gap-0 w-150 h-screen" >
