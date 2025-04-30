@@ -13,20 +13,22 @@ const ProjectSection = () => {
       today.getDate() < birthDate.getDate())
       ? 1
       : 0); // Menghitung umur berdasarkan tanggal lahir
-  const experience = today.getFullYear() - 2023; // Menghitung pengalaman kerja dari tahun 2023
+  const experience = today.getFullYear() - 2024; // Menghitung pengalaman kerja dari tahun 2023
 
   return (
-    <div className="flex p-4 gap-0 w-150 h-screen">
+    <div className="flex p-4 gap-0 w-150 h-screen" >
       <main className="flex flex-col p-4 gap-3 bg-gradient-to-b from-black/60 to-black/50 text-white w-full h-full rounded-lg shadow-lg">
         {/* Bagian Atas */}
         <div
           className={`relative flex gap-3 w-120 h-50 bg-[url('/bg1.png')] bg-cover bg-center rounded-lx`}
           id="atas"
+          
         >
           <img
             src="/profile.jpg"
             alt="Profile"
             className="w-20 h-20 object-cover border-3 border-yellow-700 m-2"
+            data-aos="zoom-in"
           />
           <div className="flex flex-col justify-start py-3 flex-1 rounded-r-md">
             <div className="flex items-center space-x-2 mb-4">
@@ -34,14 +36,15 @@ const ProjectSection = () => {
                 alt="Small red and white flag icon"
                 className="w-5 h-5"
                 src="../indonesia.png"
+                data-aos="zoom-in"
               />
-              <span className="text-white text-sm px-1 py-0.5 font-semibold">
+              <span className="text-white text-sm px-1 py-0.5 font-semibold" data-aos="flip-down">
                 Muhammad Fairuz Atha
               </span>
-              <img src="../male.png" alt="" className="w-5 h-5" />
+              <img src="../male.png" alt="" className="w-5 h-5" data-aos="zoom-in"/>
             </div>
             <div className="whitespace-nowrap">
-              <span className="text-white text-sm px-1 py-0.5 font-semibold">
+              <span className="text-white text-sm px-1 py-0.5 font-semibold" data-aos="zoom-in">
                 Age: {age}
               </span>
             </div>
@@ -50,54 +53,30 @@ const ProjectSection = () => {
 
         {/* Bagian Tengah */}
         <div
-          className="px-10 h-10 w-10 flex items-center justify-center border-2 border-b-0 rounded-xl"
+          className="px-10 h-10 max-w-sm flex items-center justify-center border-2 border-b-0 rounded-xl"
           id="tengah"
+          data-aos="fade-up"
         >
-          <h3>Skill</h3>
+          <h3>About Me</h3>
         </div>
 
         {/* Bagian Bawah */}
-        <div className="flex gap-3 w-full h-auto border-b-2">
-          <div
-            className="flex overflow-x-auto scrollbar-hide whitespace-nowrap gap-5 p-4"
-            id="item"
-          >
-            {/* JavaScript */}
-            <div className="min-w-[150px] flex flex-col gap-2 justify-center items-center border-r p-5">
-              <img src="../js.png" alt="JavaScript" className="w-16 h-16 border" />
-              <h3>JavaScript: Beginner</h3>
-            </div>
+        <div className="flex gap-3 w-full h-auto border-b-2" data-aos="fade-up">
+          <div id="aboutme">
 
-            {/* PHP */}
-            <div className="min-w-[150px] flex flex-col gap-2 justify-center items-center border-r p-5">
-              <img src="../php.png" alt="PHP" className="w-16 h-16" />
-              <h3>PHP: Beginner</h3>
-            </div>
+            <p className='text-justify text-l px-3 py-5'>
+            Halo! Saya Muhammad Fairuz Atha, seorang pengembang web dan game yang sedang menapaki langkah awal di dunia teknologi. Meskipun saya masih fresh graduate, saya memiliki semangat tinggi untuk terus belajar dan berkembang di bidang ini.
 
-            {/* Blender */}
-            <div className="min-w-[150px] flex flex-col gap-2 justify-center items-center border-r p-5">
-              <img src="../blender_logo.png" alt="Blender" className="w-auto h-16" />
-              <h3>Blender: Beginner</h3>
-            </div>
+            Saya menguasai beberapa tools dan bahasa pemrograman seperti Unity, JavaScript, dan PHP. Saat ini, saya sedang mengembangkan beberapa proyek pribadi, termasuk sebuah game yang masih dalam tahap pengembangan dan sebuah proyek web sederhana berupa chatbot.
 
-  
-            {/* Unity */}
-            <div className="min-w-[150px] flex flex-col gap-2 justify-center items-center p-5">
-              <img src="../unity.png" alt="Unity" className="w-auto h-16" />
-              <h3>Unity: Junior</h3>
-            </div>
+            Saya dikenal sebagai pribadi yang cepat belajar, tekun, namun tetap membawa suasana santai dalam setiap pekerjaan yang saya lakukan. Saya sangat terbuka untuk proyek-proyek freelance dan selalu tertarik untuk menghadapi tantangan baru.
+            </p>
           </div>
         </div>
 
 
 
         {/* Bagian Bawah 2 */}
-        <div id="bawah2" className="flex gap-3 w-120 h-50 border-b-1 px-10 justify-center items-center">
-          <div id="experience" className="flex flex-col gap-1 justify-center items-center p-5 font-semibold">
-            <h3>Experience</h3>
-            <p>{experience} Years</p>
-          </div>
-        </div>
       </main>
     </div>
   );

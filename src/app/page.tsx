@@ -1,15 +1,26 @@
 'use client';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const AboutSection = dynamic(() => import('./display/About'));
 const ProfileSection = dynamic(() => import('./display/Profile'));
 const SkillSection = dynamic(() => import('./display/Skill'));
-const LastMatchSection = dynamic(() => import('./display/LastMatch'));
+const LastPlaySection = dynamic(() => import('./display/Achievement'));
 const ContactSection = dynamic(() => import('./display/Contact'));
 
+
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<'about' | 'project' | 'skill' | 'lastmatch' | 'contact'>('about');
+  useEffect(() => {
+    const AOS = require('aos');
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
+  const [activeSection, setActiveSection] = useState<'about' | 'project' | 'skill' | 'lastplay' | 'contact'>('about');
 
   const renderSection = () => {
     switch (activeSection) {
@@ -19,8 +30,8 @@ export default function Home() {
         return <ProfileSection />;
       case 'skill':
         return <SkillSection />;
-      case 'lastmatch':
-        return <LastMatchSection />;
+      case 'lastplay':
+        return <LastPlaySection />;
       case 'contact':
         return <ContactSection />;
       default:
@@ -29,7 +40,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen">
+    <main className="flex h-screen" >
       <nav className="flex py-10 justify-center h-screen w-80 bg-gradient-to-b from-black/100 to-black/80 text-white">
         <ul className="flex flex-col w-full">
           <li className='text-2xl font-standard border-b-2 border-gray-500 text-center pt-0 pb-16'>          
@@ -61,12 +72,12 @@ export default function Home() {
               Skill
             </button>
           </li>
-          <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'lastmatch' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
+          <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'lastplay' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
             <button
-              onClick={() => setActiveSection('lastmatch')}
+              onClick={() => setActiveSection('lastplay')}
               className="px-10 py-5 w-full h-auto hover:bg-yellow-400 transition duration-300"
             >
-              Last Match
+              Achievement
             </button>
           </li>
           <li className={`text-2xl font-standard border-b-2 border-gray-500 text-center ${activeSection === 'contact' ? ' border-r-4 border-yellow-400 bg-gradient-to-r from-yellow-400/0 to-yellow-400/100 text-white' : 'hover:bg-yellow-100'}`}>
